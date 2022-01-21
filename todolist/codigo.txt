@@ -1,0 +1,35 @@
+<?php if($resiveTarea['id_tarea'] > $contador && $contador == 1 ){ ?>
+    <a href="reinicio_auto_incremento.php?id_tarea=<?php print $resiveTarea['id_tarea'];?>" class="btn btn-danger">
+        <span class="fa fa-trash-alt"></span>
+    </a>
+<?php
+    }
+?>
+
+líneas para el el boton de editado de tarea
+
+<td class="text-left "><input type="text" name="editarTarea" value="<?php print $resiveTarea['info_tarea'] ?>"></td>
+
+if ($row[4] == "profesor" || $row[4] == "admin") {
+
+                                $registroTarea = mysqli_query ($conenctaBD,"SELECT * FROM tareas");
+                            print var_dump($registroTarea);
+                            for ($resiveTarea =0; $resiveTarea = $areglo= mysqli_fetch_row($registroTarea); $resiveTarea++) {
+                                $cont ++;
+                            }
+/---------------------------------------------------------------\
+                            <?php
+                $nombre = $_POST['name'];
+                $email = $_POST['email'];
+                $password = $_POST['pasword'];
+                
+                if (isset($_POST['actName'])) {
+                    if ($_POST['name'] ) {
+                        require 'conn.php';
+                        
+                        $conenctaBD->query("UPDATE registro SET nombre = '$nombre' WHERE id_regitro = $id") or die(mysqli_errno($conenctaBD));
+                        $respueta = "registro actualizado";
+                        header('location:editar-registro.php?res='.$respueta);
+                    }
+                }
+            ?>
